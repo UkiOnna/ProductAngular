@@ -1,1 +1,18 @@
-<h1>{{title}}</h1>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+<div id="header" class="d-flex justify-content-center mt-2">
+    <input class="btn btn-primary btn-sm mr-2" type="button" value="Продукты" (click)='getProducts()' />
+    <input class="btn btn-primary btn-sm mr-2" type="button" value="Добавить продукт" (click)='addProduct()' />
+    <input class="btn btn-primary btn-sm" type="button" value="Удалить продукт" (click)='deleteProduct' />
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<div class="row ml-5">
+    <div *ngFor="let category of categories"><button type="button" (click)='getProductByCategory(category.id)'
+            class="btn btn-info btn-sm mr-2">{{category.name}}</button></div>
+</div>
+<router-outlet>
+
+</router-outlet>

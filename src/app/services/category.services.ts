@@ -8,12 +8,18 @@ import { Category } from '../Entities/Category';
   providedIn: 'root'
 })
 export class CategoriesService {
-
+  public categories:Category[]=[];
   constructor(private http: HttpClient) {
   }
 
-  public initializeProduct(): Category {
-    return <Category>{ id: null, name: null};
+  public initializeProduct(): Category[] {
+    this.categories.push({ id: 1, name: "Sweets"})
+    this.categories.push({ id: 2, name: "Baking"})
+    return this.categories;
+   }
+
+   public getCategory(id:Number): Category {
+    return this.categories.find(result=>result.id==id);
    }
 
   public getCategories(): Observable<Category[]> {
